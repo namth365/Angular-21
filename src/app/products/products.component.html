@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="panel-title">Manage Products</h3>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input #txt type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button on-click="search(txt.value)" class="btn
+                            btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead class="">
+                <tr class="">
+                    <th class="">#</th>
+                    <th class="">Name</th>
+                    <th class="">Price</th>
+                    <th class="">Action</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr *ngFor="let product of products; let i = index;">
+                    <th class=""> {{i+1}} </th>
+                    <td class=""> {{product.name}} </td>
+                    <td class=""> {{product.price}} </td>
+                    <td class="">
+                        <a [routerLink]="['/product-edit',i]" class="btn btn-info">Edit</a>
+                        <a [routerLink]="['/product-delete',i]" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
